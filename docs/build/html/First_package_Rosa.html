@@ -1,0 +1,365 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>First_package_Rosa package &#8212; First_package 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to First_package’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="first-package-rosa-package">
+<h1>First_package_Rosa package<a class="headerlink" href="#first-package-rosa-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-First_package_Rosa.add_func">
+<span id="first-package-rosa-add-func-module"></span><h2>First_package_Rosa.add_func module<a class="headerlink" href="#module-First_package_Rosa.add_func" title="Permalink to this headline">¶</a></h2>
+<p>Created on Sat Jun 22 18:43:08 2019</p>
+<p>&#64;author: janro</p>
+<dl class="function">
+<dt id="First_package_Rosa.add_func.approx_markov">
+<code class="descclassname">First_package_Rosa.add_func.</code><code class="descname">approx_markov</code><span class="sig-paren">(</span><em>rho</em>, <em>sigma_u</em>, <em>m=3</em>, <em>n=7</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/add_func.html#approx_markov"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.add_func.approx_markov" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the Markov matrix associated with a discretized version of
+the linear Gaussian AR(1) process</p>
+<blockquote>
+<div>y_{t+1} = rho * y_t + u_{t+1}</div></blockquote>
+<p>according to Tauchen’s method.  Here {u_t} is an iid Gaussian
+process with zero mean.</p>
+<dl class="docutils">
+<dt>rho <span class="classifier-delimiter">:</span> <span class="classifier">scalar(float)</span></dt>
+<dd>The autocorrelation coefficient</dd>
+<dt>sigma_u <span class="classifier-delimiter">:</span> <span class="classifier">scalar(float)</span></dt>
+<dd>The standard deviation of the random process</dd>
+<dt>m <span class="classifier-delimiter">:</span> <span class="classifier">scalar(int), optional(default=3)</span></dt>
+<dd>The number of standard deviations to approximate out to</dd>
+<dt>n <span class="classifier-delimiter">:</span> <span class="classifier">scalar(int), optional(default=7)</span></dt>
+<dd>The number of states to use in the approximation</dd>
+</dl>
+<dl class="docutils">
+<dt>x <span class="classifier-delimiter">:</span> <span class="classifier">array_like(float, ndim=1)</span></dt>
+<dd>The state space of the discretized process</dd>
+<dt>P <span class="classifier-delimiter">:</span> <span class="classifier">array_like(float, ndim=2)</span></dt>
+<dd>The Markov transition matrix where P[i, j] is the probability
+of transitioning from x[i] to x[j]</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="First_package_Rosa.add_func.normal_discrete_1">
+<code class="descclassname">First_package_Rosa.add_func.</code><code class="descname">normal_discrete_1</code><span class="sig-paren">(</span><em>mu</em>, <em>sigma</em>, <em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/add_func.html#normal_discrete_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.add_func.normal_discrete_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-First_package_Rosa.model_with_labour">
+<span id="first-package-rosa-model-with-labour-module"></span><h2>First_package_Rosa.model_with_labour module<a class="headerlink" href="#module-First_package_Rosa.model_with_labour" title="Permalink to this headline">¶</a></h2>
+<p>Created on Sat Jun 22 18:14:24 2019</p>
+<p>&#64;author: janro</p>
+<dl class="class">
+<dt id="First_package_Rosa.model_with_labour.life_cycle_2">
+<em class="property">class </em><code class="descclassname">First_package_Rosa.model_with_labour.</code><code class="descname">life_cycle_2</code><span class="sig-paren">(</span><em>T=79, R=45, alpha=0.4, beta=0.98, r=0.02, sigma=2.0, rho_edu=0.98, sigma_AR_edu=0.018, rho_unedu=0.98, sigma_AR_unedu=0.0346, a_n=60, a_r=5, n_sim=3000, n_sim_ag=1, grid_min=0.0001, grid_max=100.0, edu_premium=[1.0, 1.34], edu_prop=[0.7, 0.3], ind_fe=[0.1517, 0.2061], n_fe=2, age_eff_coef_1=0.0, age_eff_coef_2=0.0, age_eff_coef_3=0.0, n_ag=5, mu_ag=1.0, sigma_ag=0.001, lambda_pref=5, chi=1.67</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_with_labour.html#life_cycle_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_with_labour.life_cycle_2" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>The life cycle model is here constructed.</p>
+<p>Consumers life T periods, retire after R.  Consumer may be educated or unecudated (i=0 or 1 for eductaed).
+Her productivity process is givan as:
+log p_{j,t,i} &amp;= kappa_i + eta_{j,t,i} + gamma_1 j -gamma_2 j^{2} -gamma_1 j^3 eta_{j+1,t+1} &amp;=</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>ho_i eta_{j,t} + epsilon_{j,t,i}</dt>
+<dd><p class="first">kappa_i &amp;sim N(0, sigma_i)</p>
+<p>Where kappa_i are fixed effects, eta_{j,t,i} is AR productivity process.
+Prarmetrs to calibrate a model are from Kindermann &amp; Kruger (2017) and Kopecky (2017)</p>
+<p>She optimize savings (a_{j,t}) and consumption (c_{j,t}) during the life time,
+write to bugdet constraint given by wage w_t and productivity p_{j,t,i} thus solve a problem:</p>
+<p>max_{a_{j+1,t+1},c_{j,t}} u(c_{j,t})+Esum_{k=0}pi_{j+i,t+i} eta^k u(c_{j+k,t+k})
+c_{j,t} +a_{j+1,t+1} &lt;= ed_i w_t p_{j,t,i}  ilde{P}_t   + (1 +r_t)a_{j,t}
+where:</p>
+<blockquote>
+<div>ilde{P}_t - aggregate shock</div></blockquote>
+<p class="last">pi_{j+i,t+i} - probabilty of surviving to period t+i
+ed_i - education premium</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="First_package_Rosa.model_with_labour.life_cycle_2.calibrate">
+<code class="descname">calibrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_with_labour.html#life_cycle_2.calibrate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_with_labour.life_cycle_2.calibrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_with_labour.life_cycle_2.execute_life_cycle">
+<code class="descname">execute_life_cycle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_with_labour.html#life_cycle_2.execute_life_cycle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_with_labour.life_cycle_2.execute_life_cycle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_with_labour.life_cycle_2.inv_marginal_u">
+<code class="descname">inv_marginal_u</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_with_labour.html#life_cycle_2.inv_marginal_u"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_with_labour.life_cycle_2.inv_marginal_u" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_with_labour.life_cycle_2.labour_rate">
+<code class="descname">labour_rate</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_with_labour.html#life_cycle_2.labour_rate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_with_labour.life_cycle_2.labour_rate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_with_labour.life_cycle_2.marginal_u">
+<code class="descname">marginal_u</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_with_labour.html#life_cycle_2.marginal_u"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_with_labour.life_cycle_2.marginal_u" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_with_labour.life_cycle_2.pension">
+<code class="descname">pension</code><span class="sig-paren">(</span><em>f</em>, <em>p</em>, <em>q</em>, <em>edu</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_with_labour.html#life_cycle_2.pension"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_with_labour.life_cycle_2.pension" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_with_labour.life_cycle_2.plot_life_cycle">
+<code class="descname">plot_life_cycle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_with_labour.html#life_cycle_2.plot_life_cycle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_with_labour.life_cycle_2.plot_life_cycle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Some plots. Savongs and consumption distribution, policy function for the period 44 (just before retirment)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_with_labour.life_cycle_2.policy_functions">
+<code class="descname">policy_functions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_with_labour.html#life_cycle_2.policy_functions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_with_labour.life_cycle_2.policy_functions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find policy functions using endogenous grid method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_with_labour.life_cycle_2.simulate_life_cycle">
+<code class="descname">simulate_life_cycle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_with_labour.html#life_cycle_2.simulate_life_cycle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_with_labour.life_cycle_2.simulate_life_cycle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Due to (possibly) aggregate shocks with no initial distribution,
+we simulate many possible shocks paths and saving and consumption paths
+instead of finding general distribution</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_with_labour.life_cycle_2.utility">
+<code class="descname">utility</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_with_labour.html#life_cycle_2.utility"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_with_labour.life_cycle_2.utility" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-First_package_Rosa.model_without_labour">
+<span id="first-package-rosa-model-without-labour-module"></span><h2>First_package_Rosa.model_without_labour module<a class="headerlink" href="#module-First_package_Rosa.model_without_labour" title="Permalink to this headline">¶</a></h2>
+<p>Created on Sat Jun 22 19:00:17 2019</p>
+<p>&#64;author: janro</p>
+<dl class="class">
+<dt id="First_package_Rosa.model_without_labour.life_cycle_1">
+<em class="property">class </em><code class="descclassname">First_package_Rosa.model_without_labour.</code><code class="descname">life_cycle_1</code><span class="sig-paren">(</span><em>T=79, R=45, alpha=0.4, beta=0.98, r=0.04, sigma=2.0, rho_edu=0.97, sigma_AR_edu=0.018, rho_unedu=0.98, sigma_AR_unedu=0.0346, a_n=100, a_r=5, n_sim=100, n_sim_ag=10, grid_min=0.0001, grid_max=60.0, edu_premium=[1.0, 1.34], edu_prop=[0.7, 0.3], ind_fe=[0.1517, 0.2061], n_fe=2, age_eff_coef_1=0.048, age_eff_coef_2=-0.0008, age_eff_coef_3=-6.46e-07, n_ag=5, mu_ag=1.0, sigma_ag=0.001</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_without_labour.html#life_cycle_1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_without_labour.life_cycle_1" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>The life cycle model is here constructed.
+Consumers life T periods, retire after R.  Consumer may be educated or unecudated (i=0 or 1 for eductaed).
+Her productivity process is givan as:
+log p_{j,t,i} &amp;= kappa_i + eta_{j,t,i} + gamma_1 j -gamma_2 j^{2} -gamma_1 j^3 eta_{j+1,t+1} &amp;=</div></blockquote>
+<dl class="docutils">
+<dt>ho_i eta_{j,t} + epsilon_{j,t,i}</dt>
+<dd><p class="first">kappa_i &amp;sim N(0, sigma_i)
+Where kappa_i are fixed effects, eta_{j,t,i} is AR productivity process.
+Prarmetrs to calibrate a model are from Kindermann &amp; Kruger (2017) and Kopecky (2017)
+She optimize savings (a_{j,t}) and consumption (c_{j,t}) during the life time,
+write to bugdet constraint given by wage w_t and productivity p_{j,t,i} thus solve a problem:
+max_{a_{j+1,t+1},c_{j,t}} u(c_{j,t})+Esum_{k=0}pi_{j+i,t+i} eta^k u(c_{j+k,t+k})
+c_{j,t} +a_{j+1,t+1} &lt;= ed_i w_t p_{j,t,i}  ilde{P}_t   + (1 +r_t)a_{j,t}
+where:</p>
+<blockquote>
+<div>ilde{P}_t - aggregate shock</div></blockquote>
+<p class="last">pi_{j+i,t+i} - probabilty of surviving to period t+i
+ed_i - education premium</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="First_package_Rosa.model_without_labour.life_cycle_1.calculate_cons_equivalent">
+<code class="descname">calculate_cons_equivalent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_without_labour.html#life_cycle_1.calculate_cons_equivalent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_without_labour.life_cycle_1.calculate_cons_equivalent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_without_labour.life_cycle_1.execute_life_cycle">
+<code class="descname">execute_life_cycle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_without_labour.html#life_cycle_1.execute_life_cycle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_without_labour.life_cycle_1.execute_life_cycle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_without_labour.life_cycle_1.funcion_sim">
+<code class="descname">funcion_sim</code><span class="sig-paren">(</span><em>income</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_without_labour.html#life_cycle_1.funcion_sim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_without_labour.life_cycle_1.funcion_sim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find an optimal asset and consumption policy functions, simulate the paths</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_without_labour.life_cycle_1.inv_marginal_u">
+<code class="descname">inv_marginal_u</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_without_labour.html#life_cycle_1.inv_marginal_u"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_without_labour.life_cycle_1.inv_marginal_u" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define inverse marginal utility</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_without_labour.life_cycle_1.life_time_utlility">
+<code class="descname">life_time_utlility</code><span class="sig-paren">(</span><em>util</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_without_labour.html#life_cycle_1.life_time_utlility"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_without_labour.life_cycle_1.life_time_utlility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define liftetime utility</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_without_labour.life_cycle_1.marginal_u">
+<code class="descname">marginal_u</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_without_labour.html#life_cycle_1.marginal_u"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_without_labour.life_cycle_1.marginal_u" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define marginal utility</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_without_labour.life_cycle_1.pension">
+<code class="descname">pension</code><span class="sig-paren">(</span><em>f</em>, <em>p</em>, <em>q</em>, <em>edu</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_without_labour.html#life_cycle_1.pension"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_without_labour.life_cycle_1.pension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define pensions</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_without_labour.life_cycle_1.plot_life_cycle">
+<code class="descname">plot_life_cycle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_without_labour.html#life_cycle_1.plot_life_cycle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_without_labour.life_cycle_1.plot_life_cycle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Some plots. Savongs and consumption distribution, policy function for the period 44 (just before retirment)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_without_labour.life_cycle_1.policy_functions">
+<code class="descname">policy_functions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_without_labour.html#life_cycle_1.policy_functions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_without_labour.life_cycle_1.policy_functions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find policy functions using endogenous grid method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_without_labour.life_cycle_1.policy_functions_hyp">
+<code class="descname">policy_functions_hyp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_without_labour.html#life_cycle_1.policy_functions_hyp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_without_labour.life_cycle_1.policy_functions_hyp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find policy functions using endogenous grid method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_without_labour.life_cycle_1.set_pensions">
+<code class="descname">set_pensions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_without_labour.html#life_cycle_1.set_pensions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_without_labour.life_cycle_1.set_pensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define pensions levels</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_without_labour.life_cycle_1.simulate_life_cycle">
+<code class="descname">simulate_life_cycle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_without_labour.html#life_cycle_1.simulate_life_cycle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_without_labour.life_cycle_1.simulate_life_cycle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Due to (possibly) aggregate shocks with no initial distribution,
+we simulate many possible shocks paths and saving and consumption paths
+instead of finding general distribution</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="First_package_Rosa.model_without_labour.life_cycle_1.utility">
+<code class="descname">utility</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/First_package_Rosa/model_without_labour.html#life_cycle_1.utility"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#First_package_Rosa.model_without_labour.life_cycle_1.utility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define  utility</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-First_package_Rosa.test1">
+<span id="first-package-rosa-test1-module"></span><h2>First_package_Rosa.test1 module<a class="headerlink" href="#module-First_package_Rosa.test1" title="Permalink to this headline">¶</a></h2>
+<p>Created on Sat Jun 22 19:41:21 2019</p>
+<p>&#64;author: janro</p>
+</div>
+<div class="section" id="module-First_package_Rosa">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-First_package_Rosa" title="Permalink to this headline">¶</a></h2>
+<p>Created on Sat Jun 22 19:53:46 2019</p>
+<p>&#64;author: janro</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">First_package</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">First_package_Rosa package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-First_package_Rosa.add_func">First_package_Rosa.add_func module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-First_package_Rosa.model_with_labour">First_package_Rosa.model_with_labour module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-First_package_Rosa.model_without_labour">First_package_Rosa.model_without_labour module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-First_package_Rosa.test1">First_package_Rosa.test1 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-First_package_Rosa">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to First_package’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Jan Rosa.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/First_package_Rosa.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
