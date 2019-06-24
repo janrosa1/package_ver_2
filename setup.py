@@ -12,7 +12,6 @@ setup(
         "numpy", "scipy"
     ],
     author="Jan Rosa",
-    description='A small example package',
     url="https://github.com/janrosa1/my_package",
     author_email="jan.rosa1993@gmail.com",
     description="A small example package",
