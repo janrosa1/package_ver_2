@@ -4,6 +4,7 @@ Created on Sat Jun 22 19:00:17 2019
 
 @author: janro
 """
+
 import numpy as np
 import scipy as sp
 import matplotlib.pyplot as plt
@@ -15,8 +16,9 @@ class life_cycle_1:
     The life cycle model is here constructed.
     Consumers life T periods, retire after R.  Consumer may be educated or unecudated (i=0 or 1 for eductaed).
     Her productivity process is givan as:
-    \ log p_{j,t,i} &= \kappa_i + \eta_{j,t,i} + \gamma_1 j -\gamma_2 j^{2} -\gamma_1 j^3 \\
-    eta_{j+1,t+1} &=\rho_i eta_{j,t} + \epsilon_{j,t,i}\\
+    \ log p_{j,t,i} &= \kappa_i + \eta_{j,t,i} + \gamma_1 j -\gamma_2 j^{2} -\gamma_1 j^3 
+    eta_{j+1,t+1} &=\rho_i eta_{j,t} + \epsilon_{j,t,i}
+
     \kappa_i &\sim N(0, \sigma_i)
     Where kappa_i are fixed effects, \eta_{j,t,i} is AR productivity process.
     Prarmetrs to calibrate a model are from Kindermann & Kruger (2017) and Kopecky (2017)
@@ -461,7 +463,7 @@ class life_cycle_1:
     def funcion_sim(self, income):
          #print("funkcja")
          '''
-         Find an optimal asset and consumption policy functions, simulate the paths 
+         Find an optimal asset and consumption policy functions, simulate the paths
          '''
          end_grid = np.zeros(self.a_n+1) #endogenous grid definition
          pf_a = np.zeros((self.T+1, self.a_n+1)) #asset policy function
@@ -658,7 +660,7 @@ class life_cycle_1:
         for i in range(self.undersave):
             #print(self.underself_cons_opt[i, :])
             cons_lambda[i] = (self.life_time_utlility(self.underself_cons_opt[i, :])/ self.life_time_utlility(self.underself_cons[i, :]))**(1/(1-self.sigma))-1.0
-        
+
         n, bins, patches = plt.hist(x=cons_lambda, bins='auto', color='#0504aa',
                       alpha=0.7, rwidth=0.85)
         plt.grid(axis='y', alpha=0.75)
@@ -773,7 +775,7 @@ class life_cycle_1:
          plt.legend(loc='best')
          plt.show()
 
-         
+
 
 ############################################################################################################################
     def execute_life_cycle(self):
